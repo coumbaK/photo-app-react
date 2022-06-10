@@ -1,17 +1,24 @@
+
 import React from 'react';
 import LikeButton from './LikeButton';
 import BookmarkButton from './BookmarkButton';
 import AddComment from './AddComment';
+import Comments from './Comments';
 import {getHeaders} from './utils';
+import Modal from './Modal';
 
 class Post extends React.Component {
   
     constructor(props) {
         super(props);
         this.state = {
-            post: props.model
+            post: props.model,
+            modalIsOpen: false,
+            
         }
         this.refreshPostDataFromServer = this.refreshPostDataFromServer.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     // function that executes after the component is injected into the DOM
@@ -21,19 +28,34 @@ class Post extends React.Component {
 
     refreshPostDataFromServer () {
         // re-fetch the post:
-        const url = '/https://photo-app-secured.herokuapp.com//posts/' + this.state.post.id;
+        const url = 'https://photo-app-secured.herokuapp.com/' + this.state.post.id;
         fetch(url, {
             headers: getHeaders()
         }).then(response => response.json())
         .then(data => {
-            console.log("BYEEEE");
             console.log(data);
             this.setState({
                 post: data
             })
- 
-
         })
+    }
+    openModal() {
+        this.setState({
+            modalIsOpen: true
+        });
+   
+
+        console.log('open modal');
+
+
+    }
+    closeModal() {
+        this.setState({
+            modalIsOpen: false
+
+        });
+   
+        console.log('close modal');
     }
 
     render () {
@@ -67,19 +89,23 @@ class Post extends React.Component {
                             <strong>{post.user.username}</strong>
                         {post.caption}</p>
                     </div>
-                    {/* /* <div className="comments">
-                        <div>
-                            <p>
-                                <strong>comments</strong>
-                                sdkfjdsklf
-                            </p>
-                        </div>
-                    </div> */ }
+                    <Comments
+                        comments={post.comments}
+                        refreshPost={this.refreshPostDataFromServer}
+                        openModal={this.openModal}
+                         />
+
+                        
+                        
                     <p className="timestamp">{post.display_time}</p>
                     <AddComment
                         postId={post.id}
                         refreshPost={this.refreshPostDataFromServer}/>
-                        
+
+                    
+                    
+                    <Modal model = {post} isOpen={this.state.modalIsOpen} closeModal= {this.closeModal}/>
+
                     
                 </div>
             </section>

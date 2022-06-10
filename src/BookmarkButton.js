@@ -30,8 +30,8 @@ class BookmarkButton extends React.Component {
     }
 
     createBookmark () {
-        // fetch POST: /https://photo-app-secured.herokuapp.com//posts/likes
-        const url = '/https://photo-app-secured.herokuapp.com//bookmarks';
+        // fetch POST: /api/posts/likes
+        const url = 'https://photo-app-secured.herokuapp.com/bookmarks';
         const postData = {
             post_id: this.props.postId
         }
@@ -49,8 +49,8 @@ class BookmarkButton extends React.Component {
     }
 
     removeBookmark () {
-        // fetch DELETE: /https://photo-app-secured.herokuapp.com//posts/likes/{likeId}
-        const url = '/https://photo-app-secured.herokuapp.com//bookmarks/' + this.props.bookmarkId;
+        // fetch DELETE: /api/posts/likes/{likeId}
+        const url = 'https://photo-app-secured.herokuapp.com/bookmarks/' + this.props.bookmarkId;
         console.log('remove bookmark:', url);
         fetch (url, {
             headers: getHeaders(),

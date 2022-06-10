@@ -13,7 +13,7 @@ class Posts extends React.Component {
     }
 
     getPostsFromServer () {
-        fetch('/https://photo-app-secured.herokuapp.com//posts', {
+        fetch('https://photo-app-secured.herokuapp.com/posts', {
             headers: getHeaders()
         }).then(response => response.json())
         .then(data => {

@@ -40,7 +40,7 @@ class FollowButton extends React.Component {
 
 
     followUser () {
-        const url = '/https://photo-app-secured.herokuapp.com//following';
+        const url = 'https://photo-app-secured.herokuapp.com/following';
         const userData = {
             user_id: this.props.user_id
         }
@@ -58,8 +58,8 @@ class FollowButton extends React.Component {
     }
 
     unfollowUser () {
-        // fetch DELETE: /https://photo-app-secured.herokuapp.com//posts/likes/{likeId}
-        const url = '/https://photo-app-secured.herokuapp.com//following/' + this.state.following_id;
+        // fetch DELETE: /api/posts/likes/{likeId}
+        const url = 'https://photo-app-secured.herokuapp.com/following/' + this.state.following_id;
         console.log('remove follow:', url);
         fetch (url, {
             headers: getHeaders(),
@@ -73,21 +73,29 @@ class FollowButton extends React.Component {
     }
 
     render () { 
-        // REPLACE bookmarkId WITH CONDITIONAL ON WHETHER BUTTON SHOULD BE 
-        // FOLLOW OR UNFOLLOW
-        const classn = this.state.following_id ? 'follow' : 'unfollow';
-        const text = this.state.following_id ? 'Unfollow' : 'Follow';
-
-
-  
-       
-    return (
-        <button 
-            className= {classn}
-            onClick= {this.toggleFollow}>
-            {text}
-        </button>
-    )
+    if (this.state.following_id) {
+        return (
+            <button
+                role="switch"
+                className= "link following active"
+                aria-checked="true"
+                aria-label={"follow " + this.props.username}
+                onClick={this.unfollowUser}>
+            unfollow
+            </button>
+        )
+    } else {
+        return (
+            <button
+                role="switch"
+                className= "link following"
+                aria-checked="false"
+                aria-label={"follow " + this.props.username}
+                onClick={this.followUser}>
+            follow
+            </button>
+        )
+    }
 }
 }
 

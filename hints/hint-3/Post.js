@@ -14,7 +14,7 @@ class Post extends React.Component {
     }
 
     requeryPost() {
-        fetch(`/https://photo-app-secured.herokuapp.com//posts/${this.state.post.id}`, {
+        fetch(`/api/posts/${this.state.post.id}`, {
                 headers: getHeaders()
             })
             .then(response => response.json())

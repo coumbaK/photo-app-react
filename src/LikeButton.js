@@ -30,8 +30,8 @@ class LikeButton extends React.Component {
     }
 
     createLike () {
-        // fetch POST: /https://photo-app-secured.herokuapp.com//posts/likes
-        const url = '/https://photo-app-secured.herokuapp.com//posts/likes';
+        // fetch POST: /api/posts/likes
+        const url = 'https://photo-app-secured.herokuapp.com/posts/likes';
         const postData = {
             post_id: this.props.postId
         }
@@ -49,8 +49,8 @@ class LikeButton extends React.Component {
     }
 
     removeLike () {
-        // fetch DELETE: /https://photo-app-secured.herokuapp.com//posts/likes/{likeId}
-        const url = '/https://photo-app-secured.herokuapp.com//posts/likes/' + this.props.likeId;
+        // fetch DELETE: /api/posts/likes/{likeId}
+        const url = 'https://photo-app-secured.herokuapp.com/posts/likes/' + this.props.likeId;
         console.log('remove like:', url);
         fetch (url, {
             headers: getHeaders(),

@@ -15,7 +15,7 @@ class Posts extends React.Component {
     }
 
     fetchPosts() {
-        fetch('/https://photo-app-secured.herokuapp.com//posts', {
+        fetch('/api/posts', {
                 // authentication headers added using 
                 // getHeaders() function from src/utils.js
                 headers: getHeaders()

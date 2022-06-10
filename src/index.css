@@ -237,25 +237,7 @@ main {
     border: solid 1px #dbdbdb;
     border-radius: 15px;
 }
-.follow {
-    align-self: center;
-    text-decoration: none;
-    color: #306B9C;
-    font-family: 'Open Sans', sans-serif;
-    background: transparent;
-    font-size: 13px;
-    border : none ;
-}
 
-.unfollow {
-    align-self: center;
-    text-decoration: none;
-    color: #306B9C;
-    font-family: 'Open Sans', sans-serif;
-    background: white;
-    border-radius: 5px;
-    font-size: 13px;
-}
 aside header > div {
     display: flex;
     align-items: center;
@@ -380,6 +362,146 @@ button.like, button.bookmark {
 .fas.fa-heart {
     color: #cf0c0c;
 }
+.modal-bg {
+    background: rgba(50, 50, 50, 0.8);
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    width: 80vw;
+    height: 80vh;
+    max-height: 100vh;
+   
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.close {
+    align-self: flex-end;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal .modal-body {
+    display: flex ;
+    justify-content: flex-start;
+    width : 100%;
+    height: 100%;
+
+
+
+}
+.modal-body img {
+    width:  70%;
+    height: 100%;
+    border-radius: 5px;
+}
+.modal-body .side-bar {
+    width: 30%;
+    height : 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+
+}
+.side-bar .header {
+    display: flex;
+    width : 100%;
+    padding : 5px ;
+    border-bottom: solid 1px #9C9C9C;
+  
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.header h2 {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 2px;
+    margin-top: 0px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(0, 0, 0);
+
+}
+ 
+.side-bar .all_comments {
+    margin-top : 20px;
+    height : 85%;
+    width : 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+   
+    
+ 
+}
+.side-bar  .comment {  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    
+}
+.header img {
+    width: 50px;
+    height : 50px;
+    align-self: flex-start;
+    margin-right: 3%;
+    border-radius: 50%;
+
+   
+}
+.comment img , .header img {
+    width: 40px;
+    height : 40px;
+    align-self: flex-start;
+    margin-right: 3%;
+    border-radius: 50%;
+
+   
+}
+.comment .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 2% 2% 2% 0px;
+    width: 100%;
+}
+
+.text  p {
+    max-width : 100%;
+    padding: 0px;
+    margin-top : 0;
+    text-overflow: wrap !important;
+
+}
+.text h6 {
+    margin: 0;
+    padding: 0px;
+    font-size: 13px;
+    color: #9C9C9C;
+    font-family: 'Poppins', sans-serif;
+}
+
 
 
 @media (max-width: 900px) {

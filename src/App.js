@@ -6,12 +6,11 @@ import Profile from './Profile';
 import NavBar from './NavBar';
 import {getHeaders} from './utils';
 
-{/* TODO: Break up the HTML below into a series of React components. */}
 class App extends React.Component {  
 
     constructor(props) {
         super(props);
-        // issue a fetch request to /https://photo-app-secured.herokuapp.com//profile endpoint:
+        // issue a fetch request to /api/profile endpoint:
         this.getProfileFromServer();
         this.state = {
             user: {}
@@ -19,7 +18,7 @@ class App extends React.Component {
     }
 
     getProfileFromServer () {
-        fetch('/https://photo-app-secured.herokuapp.com//profile', {
+        fetch('https://photo-app-secured.herokuapp.com/profile', {
             headers: getHeaders()
         }).then(response => response.json())
         .then(data => {

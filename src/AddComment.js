@@ -16,7 +16,6 @@ class AddComment extends React.Component {
     }
     focusTextInput() {
         this.textInput.current.focus();
-
       }
     handleKeyDown = (event) => {
         if (event.key === 'Enter') {
@@ -29,7 +28,7 @@ class AddComment extends React.Component {
     
       handleSubmit(event) {
         event.preventDefault(); 
-        const url = '/https://photo-app-secured.herokuapp.com//comments';
+        const url = '/api/comments';
         const postData = {
             post_id: this.props.postId,
             text: this.state.value
@@ -43,7 +42,7 @@ class AddComment extends React.Component {
         .then(data => {
             // needs to trigger post redraw
             console.log(data);
-            
+            this.props.refreshPost();
         })
         this.setState({value: ''});
     
@@ -79,7 +78,7 @@ class AddComment extends React.Component {
                 onClick={this.focusTextInput} 
                 aria-label="Submit Comment"
                 onKeyDown={this.handleKeyDown}>
-                
+
                  Post</button>
         </form>
         )
