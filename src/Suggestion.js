@@ -18,7 +18,7 @@ class Suggestion extends React.Component {
 
     // refreshSuggestionDataFromServer () {
     //     // re-fetch the post:
-    //     const url = '/api/suggestions/'
+    //     const url = '/https://photo-app-secured.herokuapp.com//suggestions/'
     //     fetch(url, {
     //         headers: getHeaders()
     //     }).then(response => response.json())

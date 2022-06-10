@@ -11,7 +11,7 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        // issue a fetch request to /api/profile endpoint:
+        // issue a fetch request to /https://photo-app-secured.herokuapp.com//profile endpoint:
         this.getProfileFromServer();
         this.state = {
             user: {}
@@ -19,7 +19,7 @@ class App extends React.Component {
     }
 
     getProfileFromServer () {
-        fetch('/api/profile', {
+        fetch('/https://photo-app-secured.herokuapp.com//profile', {
             headers: getHeaders()
         }).then(response => response.json())
         .then(data => {

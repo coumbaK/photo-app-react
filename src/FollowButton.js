@@ -40,7 +40,7 @@ class FollowButton extends React.Component {
 
 
     followUser () {
-        const url = '/api/following';
+        const url = '/https://photo-app-secured.herokuapp.com//following';
         const userData = {
             user_id: this.props.user_id
         }
@@ -58,8 +58,8 @@ class FollowButton extends React.Component {
     }
 
     unfollowUser () {
-        // fetch DELETE: /api/posts/likes/{likeId}
-        const url = '/api/following/' + this.state.following_id;
+        // fetch DELETE: /https://photo-app-secured.herokuapp.com//posts/likes/{likeId}
+        const url = '/https://photo-app-secured.herokuapp.com//following/' + this.state.following_id;
         console.log('remove follow:', url);
         fetch (url, {
             headers: getHeaders(),

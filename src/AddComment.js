@@ -29,7 +29,7 @@ class AddComment extends React.Component {
     
       handleSubmit(event) {
         event.preventDefault(); 
-        const url = '/api/comments';
+        const url = '/https://photo-app-secured.herokuapp.com//comments';
         const postData = {
             post_id: this.props.postId,
             text: this.state.value
